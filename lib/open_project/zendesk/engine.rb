@@ -17,24 +17,24 @@
 require 'open_project/plugins'
 # require 'open_project/notifications'
 
-module OpenProject::GithubIntegration
+module OpenProject::Zendesk
   class Engine < ::Rails::Engine
-    engine_name :openproject_github_integration
+    engine_name :openproject_zendesk
 
     include OpenProject::Plugins::ActsAsOpEngine
 
-    register 'openproject-github_integration',
-             :author_url => 'http://finn.de',
+    register 'openproject-zendesk',
+             :author_url => 'http://www.spidasoftware.com',
              :requires_openproject => '>= 3.1.0pre1'
 
 
     initializer 'github.register_hook' do
-      ::OpenProject::Webhooks.register_hook 'github' do |hook, environment, params, user|
+      ::OpenProject::Webhooks.register_hook 'zendesk' do |hook, environment, params, user|
         HookHandler.new.process(hook, environment, params, user)
       end
     end
 
-    initializer 'github.subscribe_to_notifications' do
+    initializer 'zendesk.subscribe_to_notifications' do
       ::OpenProject::Notifications.subscribe('github.pull_request',
                                              &NotificationHandlers.method(:pull_request))
       ::OpenProject::Notifications.subscribe('github.issue_comment',

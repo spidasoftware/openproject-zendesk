@@ -13,7 +13,7 @@
 #++
 
 module OpenProject
-  module GithubIntegration
-    require "open_project/github_integration/engine"
+  module Zendesk
+    require "open_project/zendesk/engine"
   end
 end

@@ -12,7 +12,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-module OpenProject::GithubIntegration
+module OpenProject::Zendesk
   class HookHandler
     # List of the github events we can handle.
     KNOWN_EVENTS = %w{ ping pull_request issue_comment }

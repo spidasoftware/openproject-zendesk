@@ -12,4 +12,4 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-require 'open_project/github_integration'
+require 'open_project/zendesk'
